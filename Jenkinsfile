@@ -24,4 +24,5 @@ stage('Clone repository') {
             app.push("latest")
         }
     }
+         currentBuild.result = 'SUCCESS'
     }
