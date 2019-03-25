@@ -8,18 +8,22 @@ environment {
   stages {
   stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
+  steps {
         checkout scm
+    }
     }
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
+    steps{
         app = docker.build("anilpillai02/nginx")
+    }
     }
 
 
     stage('Push image') {
+    steps {
         /* Finally, we'll push the image with two tags:
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
@@ -28,6 +32,7 @@ environment {
           docker.withRegistry( '', registryCredential ) {
           app.push("${env.BUILD_NUMBER}")
           app.push("latest")
+      }
       }
      }
     }
