@@ -1,4 +1,5 @@
 pipeline {
+node {
 environment {
     registry = "anilswa"
     registryCredential = "dockerhub"
@@ -35,5 +36,6 @@ environment {
       }
       }
      }
+    }
     }
     }
