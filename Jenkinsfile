@@ -13,6 +13,7 @@ stage('Clone repository') {
         app = docker.build("anilpillai02/nginx")
     }
 
+<<<<<<< HEAD
 
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
@@ -25,4 +26,6 @@ stage('Clone repository') {
         }
     }
          currentBuild.result = 'SUCCESS'
+=======
+>>>>>>> 2442af86a4d429d04f899d261e1408a243a1de93
     }
