@@ -20,7 +20,7 @@ environment {
          * docker build on the command line */
     steps{
       script {
-        app = docker.build("anilpillai02/nginx")
+        app = docker.build("anilswa/nginx")
     }
     }
     }
