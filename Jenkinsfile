@@ -1,4 +1,9 @@
 node {
+environment {
+    registry = "anilswa"
+    registryCredential = "dockerhub"
+    dockerImage = 'nginx'
+  }
 
 stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -19,7 +24,9 @@ stage('Clone repository') {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker.withRegistry('https://hub.docker.com', 'dockerhub') {
+         *  docker.withRegistry( '', registryCredential )
+         * Pushing multiple tags is cheap, as all the layers are reused. */
+           docker.withRegistry( '', registryCredential )
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
